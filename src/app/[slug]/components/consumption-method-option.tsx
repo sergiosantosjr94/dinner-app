@@ -1,8 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ConsumptionMethod } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface ConsumptionMethodOptionProps {
   slug: string;
@@ -25,8 +26,8 @@ const ConsumptionMethodOption = ({
         <div className="relative h-[80px] w-[80px]">
           <Image
             src={imageUrl}
-            alt={imageAlt}
             fill
+            alt={imageAlt}
             className="object-contain"
           />
         </div>

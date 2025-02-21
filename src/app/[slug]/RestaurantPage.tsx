@@ -1,7 +1,9 @@
-import { Card } from "@/components/ui/card";
-import { getResturantBySlug } from "@/data/get-restaurant-by-slug";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+
+import { Card } from "@/components/ui/card";
+import { getResturantBySlug } from "@/data/get-restaurant-by-slug";
+
 import { RestaurantPageProps } from "./page";
 
 export const RestaurantPage = async ({ params }: RestaurantPageProps) => {

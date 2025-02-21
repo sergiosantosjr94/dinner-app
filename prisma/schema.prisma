@@ -24,7 +24,7 @@ model Restaurant {
   products       Product[]
   orders         Order[]
   createdAt      DateTime       @default(now())
-  updateAt       DateTime       @updatedAt
+  updatedAt      DateTime       @updatedAt
 }
 
 model MenuCategory {
@@ -34,7 +34,7 @@ model MenuCategory {
   restaurantId String
   products     Product[]
   createdAt    DateTime   @default(now())
-  updateAt     DateTime   @updatedAt
+  updatedAt    DateTime   @updatedAt
 }
 
 model Product {
@@ -49,20 +49,20 @@ model Product {
   restaurantId   String
   menuCategory   MenuCategory   @relation(fields: [menuCategoryId], references: [id], onDelete: Cascade)
   menuCategoryId String
-  createAt       DateTime       @default(now())
+  createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
 }
 
 model Order {
-  id               Int               @id @default(autoincrement())
-  total            Float
-  status           OrderStauts
-  consuptionMethod ConsumptionMethod
-  restaurant       Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-  restaurantId     String
-  orderProducts    OrderProduct[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  id                Int               @id @default(autoincrement())
+  total             Float
+  status            OrderStatus
+  consumptionMethod ConsumptionMethod
+  restaurant        Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  restaurantId      String
+  orderProducts     OrderProduct[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 }
 
 model OrderProduct {
@@ -77,9 +77,8 @@ model OrderProduct {
   updatedAt DateTime @updatedAt
 }
 
-enum OrderStauts {
+enum OrderStatus {
   PENDING
-  CONFIRMED
   IN_PREPARATION
   FINISHED
 }

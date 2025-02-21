@@ -1,6 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
