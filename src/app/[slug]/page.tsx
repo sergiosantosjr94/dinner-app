@@ -1,4 +1,4 @@
-import { getResturantBySlug } from "@/data/get-resturant-by-slug";
+import { getRestaurantBySlug } from "@/data/get-restaurant-by-slug";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ConsumptionMethodOption from "./components/consumption-method-option";
@@ -9,7 +9,7 @@ interface RestaurantPageProps {
 
 const RestaurantPage = async ({ params }: RestaurantPageProps) => {
   const { slug } = await params;
-  const restaurant = await getResturantBySlug(slug);
+  const restaurant = await getRestaurantBySlug(slug);
   if (!restaurant) {
     return notFound();
   }

@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { getResturantBySlug } from "@/data/get-resturant-by-slug";
+import { getResturantBySlug } from "@/data/get-restaurant-by-slug";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { RestaurantPageProps } from "./page";
