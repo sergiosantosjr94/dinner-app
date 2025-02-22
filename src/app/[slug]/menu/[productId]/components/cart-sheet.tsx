@@ -1,8 +1,9 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart";
-import { Heading1 } from "lucide-react";
+
 import CartProductItems  from "./cart-product-item";
+import { Button } from "@/components/ui/button";
 
 const CartSheet = () => {
   const {isOpen, toggleCart, products} = useContext(CartContext);
@@ -12,8 +13,12 @@ const CartSheet = () => {
     <SheetHeader>
       <SheetTitle className="text-left">Sacola</SheetTitle>
     </SheetHeader>
-    <div className="py-5">
+    <div className="py-5 flex flex-col">
+      <div className="flex-auto">
+
     {products.map(product => (<CartProductItems key={product.id} product={product}/>))}
+      </div>
+    <Button className="w-full rounded-full">Finalizar Pedido</Button>
     </div>
   </SheetContent>
 </Sheet> 
