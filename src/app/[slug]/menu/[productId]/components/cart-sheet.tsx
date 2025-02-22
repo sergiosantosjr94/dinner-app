@@ -1,28 +1,58 @@
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { useContext } from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/cart";
-
-import CartProductItems  from "./cart-product-item";
+import CartProductItems from "./cart-product-item";
+import { Card, CardContent } from "@/components/ui/card";
+import { formatCurrency } from "@/helpers/format-currency";
+import FinishingOrderButton from "./finishing-order-dialog";
 import { Button } from "@/components/ui/button";
+import FinishingOrderDialog from "./finishing-order-dialog";
 
 const CartSheet = () => {
-  const {isOpen, toggleCart, products} = useContext(CartContext);
-  return (  
-  <Sheet open={isOpen} onOpenChange={toggleCart}>
-  <SheetContent className="w-[80%]">
-    <SheetHeader>
-      <SheetTitle className="text-left">Sacola</SheetTitle>
-    </SheetHeader>
-    <div className="py-5 flex flex-col">
-      <div className="flex-auto">
+  const { isOpen, toggleCart, products, total } = useContext(CartContext);
+  const [FinishingOrderDialogIsOpen, setFinishOrderDialogIsOpen] =
+    useState(false);
+  return (
+    <Sheet open={isOpen} onOpenChange={toggleCart}>
+      <SheetContent className="w-[80%]">
+        <SheetHeader>
+          <SheetTitle className="text-left">Sacola</SheetTitle>
+        </SheetHeader>
+        <div className="flex h-full flex-col py-5">
+          <div className="flex-auto">
+            {products.map((product) => (
+              <CartProductItems key={product.id} product={product} />
+            ))}
+          </div>
+          <Card className="mb-6">
+            <CardContent className="p-5">
+              <div className="flex justify-between">
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Total:
+                </p>
+                <p className="font-sm font-semibold">{formatCurrency(total)}</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Button
+            className="w-full rounded-full"
+            onClick={() => setFinishOrderDialogIsOpen(true)}
+          >
+            Finalizar Pedido
+          </Button>
+          <FinishingOrderDialog
+            open={FinishingOrderDialogIsOpen}
+            onOpenChange={setFinishOrderDialogIsOpen}
+          />
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+};
 
-    {products.map(product => (<CartProductItems key={product.id} product={product}/>))}
-      </div>
-    <Button className="w-full rounded-full">Finalizar Pedido</Button>
-    </div>
-  </SheetContent>
-</Sheet> 
-);
-}
- 
 export default CartSheet;
