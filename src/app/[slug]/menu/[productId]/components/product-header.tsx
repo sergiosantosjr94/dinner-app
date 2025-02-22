@@ -28,7 +28,7 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
         src={product.imageUrl}
         alt={product.name}
         fill
-        className="object-contain"
+        className="object-contain bg-stone-100"
       />
       <Button
         variant="secondary"

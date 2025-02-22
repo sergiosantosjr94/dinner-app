@@ -46,7 +46,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <>
-    <div className="roudend-t-3-xl p5 relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden p-5">
+    <div className="rounded-t-3xl bg-white p5 relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden p-5">
       <div className="flex-auto overflow-hidden">
         {/* RESTAURANTE */}
         <div className="flex items-center gap-1.5">
