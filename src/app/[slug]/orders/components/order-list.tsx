@@ -1,8 +1,9 @@
+import { OrderStatus, Prisma } from "@prisma/client";
+import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
+import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
-import { OrderStatus, Prisma } from "@prisma/client";
-import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { formatCurrency } from "@/helpers/format-currency";
 interface OrderListProps {
