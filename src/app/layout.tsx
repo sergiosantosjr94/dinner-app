@@ -12,8 +12,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "FSW Donalds",
-  description: "Bora finalizar esse projeto lindo!",
+  title: "Dinner App",
+  description:
+    "This is a full-stack web application designed for restaurants, providing users with an intuitive mobile-like experience to order products and track their order status in real time.",
 };
 
 export default function RootLayout({
