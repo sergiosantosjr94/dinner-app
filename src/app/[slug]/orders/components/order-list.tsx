@@ -33,6 +33,7 @@ const OrderList = ({ orders }: OrderListProps) => {
       return "FINALIZADO";
     }
   };
+
   return (
     <div className="space-y-6 p-6">
       <Button size="icon" variant="secondary" className="rounded-full">
